@@ -1,0 +1,23 @@
+{#yontim/templates/show_emplyee#}
+{% comment %} {% load render_table from django_tables2 %}
+{% load static %} {% endcomment %}
+
+<html>
+    <head>
+        <title></title>
+        
+    </head>
+    <body>
+      <h1>Insert cat</h1>
+        
+        <form action="" method="POST">
+          {% csrf_token %}
+          <div>
+            name: <input type="text" name="name"/>
+          </div>
+          
+          <input type="submit" value="Post"/>
+          </form>
+    </body>
+</html>
+

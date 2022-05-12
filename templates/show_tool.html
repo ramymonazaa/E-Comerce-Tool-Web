@@ -1,0 +1,57 @@
+{#yontim/templates/show_manager#}
+{% comment %} {% load render_table from django_tables2 %}
+{% load static %} {% endcomment %}
+<html>
+    <head>
+        <title></title>
+        <style>
+            #customers {
+              font-family: Arial, Helvetica, sans-serif;
+              border-collapse: collapse;
+              width: 50%;
+              margin:  auto;
+            }
+            
+            #customers td, #customers th {
+              border: 1px solid #ddd;
+              padding: 8px;
+            }
+            
+            #customers tr:nth-child(even){background-color: #f2f2f2;}
+            
+            #customers tr:hover {background-color: #ddd;}
+            
+            #customers th {
+              padding-top: 12px;
+              padding-bottom: 12px;
+              text-align: left;
+              background-color: #04AA6D;
+              color: white;
+            }
+            </style>
+    </head>
+    <body>
+        <table id="customers">
+            <tr>
+              <th>id</th>
+              <th>name</th>
+              <th>age</th>
+              <th>sallary</th>
+            </tr>
+  
+            
+            {% for row in rows %}
+                <tr>
+                <td>{{row.id}}</td>
+                <td>{{row.name}}</td>
+                <td>{{row.image}}</td>
+                <td>{{row.price}}</td>
+                <td>{{row.expiration_date}}</td>
+                <td>{{row.category}}</td>
+                <td>{{row.created_at}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
+

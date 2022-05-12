@@ -1,0 +1,60 @@
+{#yontim/templates/show_emplyee#}
+{% comment %} {% load render_table from django_tables2 %}
+{% load static %} {% endcomment %}
+
+<html>
+    <head>
+        <title></title>
+        
+    </head>
+    <body>
+      <h1>Insert Tool</h1>
+        {% comment %} <from method="POST" action="">
+          {% csrf_token %}
+          <div>
+            name: <input type="text" name="name"/>
+          </div>
+          <div>
+            image: <input type="file" name="image"/>
+          </div>
+          <div>
+            expiration_date: <input type="text" name="expiration_date"/>
+          </div>
+          <div>
+            price: <input type="float" name="price"/>
+          </div>
+          <div>
+            discription: <input type="text" name="discription"/>
+          </div>
+          <div>
+            category: <input type="text" name="category"/>
+             <option>power tool</option>
+            <option>air tool</option>
+            <option>Hand Tools</option>
+            <option>Accessories</option> 
+          <input type="submit" name="submit" value="Post" />
+          </div>
+          
+        </from> {% endcomment %}
+        <form action="" method="POST">
+          {% csrf_token %}
+          name: <input type="text" name="name"/><br>
+          image: <input type="file" name="image"/><br>
+          expiration_date: <input type="text" name="expiration_date"/><br>
+          price: <input type="float" name="price"/><br>
+          {% comment %} category: <input type="text" name="category"/><br> {% endcomment %}
+          <select name="category_selected">
+            {% for category in categories %}
+        {% comment %} <a class="btn btn-primary" href="{% url 'url-name'%}">Button-Text</a> {% endcomment %}
+              <option value="{% url "category" id_=category.id%}">{{category.name}}</option>
+            {% endfor %}
+            {% comment %} <option value="1">Accessories</option>
+            <option value="2">Air Tools</option>
+            <option value="3">Hand Tools</option>
+            <option value="4">Power Tools</option> {% endcomment %}
+          </select>
+          <input type="submit" value="Post"/><br>
+          </form>
+    </body>
+</html>
+
