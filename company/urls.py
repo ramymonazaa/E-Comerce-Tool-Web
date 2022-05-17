@@ -21,6 +21,7 @@ from django.conf.urls import url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from company import views
 from app1 import views as v_app
+from app1.models import tool
 urlpatterns = [
     path('admin/', admin.site.urls), 
     path('', include("app1.urls")),
@@ -28,6 +29,8 @@ urlpatterns = [
     url(r'^$',views.homepage),
     path('home',views.homepage , name='home'),
     path('insert',v_app.insert_tool , name='insert'),
+    path('show_tool',v_app.show_tool , name='show_tool'),
+    path('<int:id>',v_app.insert_cart , name='insert_cart1'),
     path('index <int:id_>',v_app.category1 , name='category'),
 ]
 urlpatterns+=staticfiles_urlpatterns()#sypport take urls from html

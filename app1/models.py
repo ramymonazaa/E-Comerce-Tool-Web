@@ -25,8 +25,16 @@ class serves(models.Model):
     def __str__(self):
         return self.name
     
-    
-    
+class cart(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=200)
+    image= models.ImageField()
+    expiration_date = models.FloatField()
+    price=models.FloatField()
+    category=models.CharField(max_length=200)
+    created_at = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return self.name
     
     #models.py File
 

@@ -1,10 +1,11 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from app1.models import category, tool
+from app1.models import category, tool,cart
 def homepage(request):
     rows=tool.objects.all().order_by('created_at')
     categories=category.objects.all()
-    return render(request, 'index.html',{'rows':rows,'categories':categories})   
+    cart_items=cart.objects.all()
+    return render(request, 'index.html',{'rows':rows,'categories':categories,'cart_items':cart_items})   
 
 # def about(request):
 #     # return HttpResponse('about')
